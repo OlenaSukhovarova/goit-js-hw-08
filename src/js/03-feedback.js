@@ -18,12 +18,13 @@ function onSubmitForm(event) {
   localStorage.removeItem('feedback-form-state');
 }
 
-function dataFromStorage() {
+document.addEventListener('DOMContentLoaded', function () {
   const data = JSON.parse(localStorage.getItem('feedback-form-state'));
-  const email = document.querySelector('.feedback-form input');
-  const message = document.querySelector('.feedback-form textarea');
+
   if (data) {
+    const email = document.querySelector('.feedback-form input');
+    const message = document.querySelector('.feedback-form textarea');
     email.value = data.email;
     message.value = data.message;
   }
-}
+});
